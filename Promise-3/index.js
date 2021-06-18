@@ -1,7 +1,7 @@
 function greet(name) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      if (typeof name === 'string') { 
+      if (typeof name === 'string') {
         resolve('hello ' + name);
       } else {
         reject('Name must be a string!');
@@ -12,7 +12,7 @@ function greet(name) {
 
 function uppercaser(str) {
   return new Promise((resolve, reject) => {
-    setTimeout(() =>{
+    setTimeout(() => {
       if (typeof str === 'string') {
         resolve(str.toUpperCase());
       } else {
@@ -29,15 +29,22 @@ function uppercaser(str) {
 // Result of one is then passed to the next. 
 
 greet('Your name') // Returns a Promise
-.then(str => uppercaser(str))  // Upper case the results from greet() Returns a Promise
-.then(str => console.log(str)) // Log the results of uppercaser()
-.catch(err => console.log(err)) // Catches an error
+  .then(str => uppercaser(str))  // Upper case the results from greet() Returns a Promise
+  .then(str => console.log(str)) // Log the results of uppercaser()
+  .catch(err => console.log(err)) // Catches an error
 
 // Challenges: get greet() to fail by passing a non string value
 // What happens? 
+greet(1)
+  .then(str => console.log(str))
+  .catch(err => console.log(err))
 
 // Challenge: get uppercaser() to fail by passing a non string value
 // What happens? 
+uppercaser(1)
+  .then(str => console.log(str))
+  .catch(err => console.log(err))
 
-// Challenge: Notice there is only a single .catch() at the end. 
+// Challenge: Notice there is only a single .catch() at the end.
 // Explain the behavior?
+// There only needs to be one to catch the errors for the statements before it
