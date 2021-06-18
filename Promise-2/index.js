@@ -14,7 +14,17 @@ function asyncNumberChecker(n) {
 // to handle the promise in the function calls below. 
 // Handle success with .then() and errors with .catch()
 
-asyncNumberChecker(10)
+asyncNumberChecker(10).then((n) => {
+  console.log(n)
+})
+  .catch((err) => {
+    console.log(err)
+  })
 
 
-asyncNumberChecker(5)
+asyncNumberChecker(5).then((n) => {
+  console.log(n)
+})
+  .catch((err) => {
+    console.log(err)
+  })
